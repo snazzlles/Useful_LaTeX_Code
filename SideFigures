@@ -1,0 +1,14 @@
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}{0.48\textwidth}
+	  \centering
+	  \includegraphics[width=0.95\textwidth]{FILE_NAME}
+	  \caption{CAPTION}\label{fig:LABEL}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+	  \centering
+	  \includegraphics[width=0.95\textwidth]{FILE_NAME}
+	  \caption{CAPTION}\label{fig:LABEL}
+	\end{minipage}%
+\end{figure}
