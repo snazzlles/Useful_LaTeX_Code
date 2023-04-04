@@ -1,0 +1,23 @@
+%Before \begin{document}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{scrlayer}
+\usepackage{scrhack}
+\DeclareNewLayer[
+  background,
+  textarea,
+  addwidth=\footskip,
+  addwidth=\footheight,
+  contents=\hfill%
+    \rotatebox{90}{\parbox{\layerheight}{\centering\pagemark}}
+]{lscape.foot}
+
+\DeclareNewPageStyleByLayers{lscape}{lscape.foot}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Full page portrait pdf/image (inserts all pages)
+\includepdf[pagecommand={},pages=-, scale=0.98]{FILE_NAME.pdf}
+
+%Full page landscape pdf/image
+\includepdf[pagecommand={\thispagestyle{lscape}},landscape=true,scale=1,addtolist={1,TABLE/FIGURE/ETC,CAPTION,table::LABEL}]{FILE_NAME.pdf}
