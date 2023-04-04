@@ -1,0 +1,14 @@
+\usepackage{subfigure}
+
+\begin{figure*}[!h]
+    \centering
+    \subfigure[SUB-CAPTION]{
+        \includegraphics[width=0.3\textwidth]{FILE_NAME}
+        \label{fig:SUB-LABEL}}
+    \hspace{10mm}
+    \subfigure[SUB-CAPTION]{
+        \includegraphics[width=0.3\textwidth]{FILE_NAME}
+        \label{fig:SUB-LABEL}}
+    \caption{FIGURE CAPTION}
+    \label{fig:FIGURE LABEL}
+\end{figure*}
