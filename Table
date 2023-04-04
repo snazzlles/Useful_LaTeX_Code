@@ -1,0 +1,16 @@
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+    
+
+\begin{table}
+\begin{center}
+\caption{CAPTION}\label{tab:LABEL}
+\begin{tabularx}{\linewidth}{|l|l|l|l|L|}
+\hline \hline
+\textbf{Batch No.} & \textbf{Pilot Hole} & \textbf{Peak Force (N)} & \textbf{Failure} & \textbf{Notes} \\
+~ & \textbf{Diameter (mm)} & ~ & \textbf{Mechanism}  & ~\\\hline
+01 & 10 & 574.7318 & Thread & ~ \\
+\hline \hline
+\end{tabularx}
+\end{center}
+\end{table}
