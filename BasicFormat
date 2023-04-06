@@ -1,0 +1,95 @@
+\documentclass[journal]{IEEEtran}
+\graphicspath{{C:/Users/ELEANOR/Documents/~~~~~~/}}
+\setcounter{tocdepth}{2}	%depth level of the table of contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PACKAGES
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage[numbers]{natbib}
+\usepackage{placeins}
+\usepackage{steinmetz}
+\usepackage{xfrac} %sfrac
+\usepackage{caption}
+\usepackage{url} %makes special characters not matter in bibtex
+\usepackage{subfigure}
+\usepackage{wrapfig}	%can have text wrap around a figure
+\usepackage{nomencl} %nomenclature
+\usepackage{pdfpages}
+\usepackage{rotating}	%can rotate pages or figures
+\usepackage{xurl} %lets links in references split
+\usepackage{multicol}	%can make things into multiplecolumns
+\usepackage{tabularx}	%used for making tables wrap their text
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%MACROS
+\input{C:/Users/ELEANOR/Documents/LaTeX/@MACROS/fig.tex}
+\input{C:/Users/ELEANOR/Documents/LaTeX/@MACROS/twofig.tex}
+\input{C:/Users/ELEANOR/Documents/LaTeX/@MACROS/subfig.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%NEW COMMANDS
+\newcommand \reffig[1]{Figure \ref{#1}}
+\newcommand \reftab[1]{Table \ref{#1}}
+\newcommand \refsec[1]{Section \ref{#1}}
+\newcommand \refapp[1]{Appendix \ref{#1}}
+\newcommand \refeq[1] {Equation \ref{#1}}
+\newcommand \refeqs[1] {Equations \ref{#1}}
+
+\newcommand \fakesection[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PUTTING PAGE NUMBERS ON INCLUDEPDF
+\usepackage{pdflscape}
+\usepackage{scrlayer}
+\usepackage{scrhack}
+\DeclareNewLayer[
+  background,
+  textarea,
+  addwidth=\footskip,
+  addwidth=\footheight,
+  contents=\hfill%
+    \rotatebox{90}{\parbox{\layerheight}{\centering\pagemark}}
+]{lscape.foot}
+
+\DeclareNewPageStyleByLayers{lscape}{lscape.foot}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PROJECT NOTES
+
+
+%------------------------------------------------------------------------------------------------------------------------------
+%\usepackage[margin=2.5cm]{geometry}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{TITLE}
+\author{FIRST~LAST}% <-this % stops a space
+\date{DATE}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+
+%------------------------------------------------------------------------------------------------------------------------------
+\onecolumn
+\newpage
+%\newgeometry{noheadfoot=false,top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm}
+\begin{multicols}{2}
+	%\begin{footnotesize}
+	\bibliographystyle{IEEEtran}
+	\bibliography{}
+	%\end{footnotesize}
+\end{multicols}
+%------------------------------------------------------------------------------------------------------------------------------
+\newpage
+\appendix
+\section{APPENDIX NAME}
+\includepdf[pagecommand={}, scale=0.98]{FILE_NAME.pdf}
+
+\end{document}
